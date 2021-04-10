@@ -66,6 +66,11 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('fontend/assets/js/main.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+<script> 
+   VANTA.NET('#vantajs')
+</script>
 
 </body>
 
