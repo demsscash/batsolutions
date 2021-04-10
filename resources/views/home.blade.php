@@ -43,7 +43,7 @@
         </div>
 
         
-        <div class="container">
+        <div class="container1">
         <div class="card">
             <div class="circle">
               <h2>01</h2>
