@@ -82,7 +82,7 @@ Route::get('/service/edit/{id}', [ServiceController::class, 'EditService']);
 Route::post('/update/service/{id}', [ServiceController::class, 'UpdateService']);
 //Portfolio Page Route
 Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
-Route::get('/service', [ServiceController::class, 'service'])->name('service');
+
 
 
 
@@ -98,7 +98,7 @@ Route::get('/admin/message', [ContactController::class, 'AdminMessage'])->name('
 /// Home Contact Page Route 
 Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
 Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
-
+Route::get('/service', [ServiceController::class, 'service'])->name('service');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 

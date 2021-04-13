@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth');
-    }
+    
     public function AddService(){
         return view('admin.service.create');
     }
@@ -25,6 +23,7 @@ class ServiceController extends Controller
         $service = DB::table('services')->first();
         return view('pages.service',compact('service'));
     }
+   
     public function StoreService(Request $request){
         
         Service::insert([

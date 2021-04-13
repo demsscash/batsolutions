@@ -1,10 +1,12 @@
 @extends('layouts.master_home')
 
+  
+
 @section('home_content')
 
 
-    <div id="vantajs"></div>
-    <script>
+<div id="vantajs"></div>
+<script>
         VANTA.NET({
   el: "#vantajs",
   mouseControls: true,
