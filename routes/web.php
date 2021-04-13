@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChangePass;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AboutController;
 use App\Models\User;
 use App\Models\Multipic;
@@ -20,7 +21,8 @@ Route::get('/', function () {
     $brands = DB::table('brands')->get();
     $abouts = DB::table('home_abouts')->first();
     $images = Multipic::all();
-    return view('home', compact('brands','abouts','images'));
+    $service= DB::table('services')->get();
+    return view('home', compact('brands','abouts','images','service'));
 });
 
 Route::get('/home', function () {
@@ -73,9 +75,14 @@ Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout']);
 Route::post('/update/homeabout/{id}', [AboutController::class, 'UpdateAbout']);
 Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
 
+Route::get('/home/service', [ServiceController::class, 'allService'])->name('home.service');
+Route::get('/add/service', [ServiceController::class, 'AddService'])->name('add.service');
+Route::post('/store/service', [ServiceController::class, 'StoreService'])->name('store.service');
+Route::get('/service/edit/{id}', [ServiceController::class, 'EditService']);
+Route::post('/update/service/{id}', [ServiceController::class, 'UpdateService']);
 //Portfolio Page Route
 Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
-
+Route::get('/service', [ServiceController::class, 'service'])->name('service');
 
 
 

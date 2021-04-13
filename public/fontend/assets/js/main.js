@@ -175,22 +175,52 @@
   $(window).on('load', function() {
     aos_init();
   });
+  $(document).ready(function () {
+
+    $('.client-single').on('click', function (event) {
+       event.preventDefault();
+
+       var active = $(this).hasClass('active');
+
+       var parent = $(this).parents('.testi-wrap');
+
+       if (!active) {
+           var activeBlock = parent.find('.client-single.active');
+
+           var currentPos = $(this).attr('data-position');
+
+           var newPos = activeBlock.attr('data-position');
+
+           activeBlock.removeClass('active').removeClass(newPos).addClass('inactive').addClass(currentPos);
+           activeBlock.attr('data-position', currentPos);
+
+           $(this).addClass('active').removeClass('inactive').removeClass(currentPos).addClass(newPos);
+           $(this).attr('data-position', newPos);
+
+       }
+   });
+
+});
 
 })(jQuery);
 
-VANTA.BIRDS({
+VANTA.NET({
   el: "#vantajs",
-  /* more options (Uncomment) */
-  //birdSize: 1.50,
-  //wingSpan: 21.00,
-  //speedLimit: 4.00,
-  //separation: 32.00,
-  //alignment: 33.00,
-  //cohesion: 33.00,
-  //quantity: 2.00
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0xe86f1e,
+  backgroundColor: 0x4415b3,
+  points: 16.00,
+  maxDistance: 30.00,
+  spacing: 14.00
 });
 
-VANTA.BIRDS("#vantajs");
+VANTA.NET("#vantajs");
 
 /* code highlight */
 $(document).ready(function(){
